@@ -1,4 +1,4 @@
-file = open('navigation.txt', 'r')
+file = open('navigation.dat', 'r')
 data = []
 for line in file:
 	elements = line.split()
