@@ -30,7 +30,7 @@ class Pirate:
 			return False
 	def search(self):
 		islands = []
-		for dirname in os.path.scandir(path):
+		for dirname in os.scandir(self.path):
 			if os.path.isdir(dirname):
 				islands.append(int(os.path.basename(dirname)))
 		return islands
