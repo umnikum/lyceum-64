@@ -1,15 +1,5 @@
 from random import randint
 
-n = 10
-def _coor_range(coor):
-	_min = coor - 1
-	if _min < 0:
-		_min = 0
-	_max = coor + 1
-	if _max >= n:
-		_max = n-1
-	return range(_min, _max)
-
 class Cell:
 	def __init__(self, x, y, food = 0, has_animal = False):
 		self.x = x
@@ -18,12 +8,22 @@ class Cell:
 		self.has_animal = has_animal
 	def __eq__(self, cell):
 		return self.x == cell.x and self.y == cell.y
+	def __str__(self):
+		if self.food > 0:
+			return '\\#/'
+		else:
+			return '___'
 
 class Animal:
 	def __init__(self, fat, cell = None, gen = None):
 		self.gen = gen
 		self.fat = fat
 		self.cell = cell
+	def __str__(self):
+		if self.is_alive():
+			return '^o^'
+		else:
+			return 'x_x'
 	def is_alive(self):
 		return self.fat >= 0
 	def eat(self):
@@ -40,7 +40,7 @@ class Field:
 		self.animals = []
 		for y in range(size):
 			line = []
-			for x in range(n):
+			for x in range(size):
 				line.append(Cell(x,y))
 			self.cells.append(line)
 	def print(self):
@@ -51,14 +51,9 @@ class Field:
 				if cell.has_animal:
 					animal = self.find_animal(cell)
 					if animal != None:
-						if animal.is_alive():
-							line += '^o^'
-						else:
-							line += 'x_x'
-				elif cell.food > 0:
-					line += '\\#/'
+						line += str(animal)
 				else:
-					line += '___'
+					line += str(cell)
 			print(line)
 	def _coor_range(coor):
 		_min = coor - 1
@@ -68,6 +63,8 @@ class Field:
 		if _max >= self.size:
 			_max = self.size-1
 		return range(_min, _max)
+	def __get_item(self, key):
+		return self.cells[key]
 	def grow_food(self, amount):
 		for i in range(amount):
 			x = randint(0, self.size-1)
