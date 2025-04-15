@@ -9,6 +9,7 @@ for c in line:
 		mask_s += '.'+c
 	else:
 		mask_s += c
+mask+s += '$'
 mask = re.compile(mask_s)
 
 number = '123456789'
