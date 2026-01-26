@@ -1,0 +1,2 @@
+a, b, c = map(int, input('Р’РІРµРґРёС‚Рµ С‡РёСЃР»Р°:').split())
+print(a,b,c) 
