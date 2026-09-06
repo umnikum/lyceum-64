@@ -1,0 +1,43 @@
+{
+  "version": 3,
+  "effective_w": 1600,
+  "effective_h": 600,
+  "gravity": "none",
+  "accel": 0.35,
+  "max_speed": 14.0,
+  "friction_enabled": true,
+  "friction_frac": 0.1,
+  "friction_const": 0.08,
+  "rectangles": [
+    {
+      "x": 92.0,
+      "y": 227.0,
+      "w": 70.0,
+      "h": 50.0,
+      "color": "#e94560",
+      "grounded": true,
+      "vx": 0.0,
+      "vy": 0.0
+    },
+    {
+      "x": 548.0,
+      "y": 444.0,
+      "w": 70.0,
+      "h": 50.0,
+      "color": "#e94560",
+      "grounded": true,
+      "vx": 0.0,
+      "vy": 0.0
+    },
+    {
+      "x": 280.0,
+      "y": 168.0,
+      "w": 98.0,
+      "h": 48.0,
+      "color": "#b83b5e",
+      "grounded": false,
+      "vx": 0.0,
+      "vy": 0.0
+    }
+  ]
+}
